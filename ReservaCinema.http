@@ -1,0 +1,49 @@
+﻿@ReservaCinema_HostAddress = http://localhost:5141
+
+@idSessao=4
+GET {{ReservaCinema_HostAddress}}/assentos/{{idSessao}}
+
+###
+
+@idAssento=1
+PATCH {{ReservaCinema_HostAddress}}/reservar-assento/{{idAssento}}
+
+###
+
+GET {{ReservaCinema_HostAddress}}/sessoes
+
+###
+
+POST {{ReservaCinema_HostAddress}}/sessoes
+Content-Type: application/json
+
+{
+  "Filme": "Teste2",
+  "Sala": 1,
+  "DataHora": "2025-11-16T16:00:00",
+  "SinopseFilme": "Teste",
+  "DiretoresFilme": "Teste",
+  "QuantidadeTotalAssentos": 60
+}
+###
+
+DELETE {{ReservaCinema_HostAddress}}/sessoes/{{idSessao}}
+
+###
+
+GET {{ReservaCinema_HostAddress}}/sessoes/{{idSessao}}
+
+###
+
+PUT {{ReservaCinema_HostAddress}}/sessoes/{{idSessao}}
+Content-Type: application/json
+
+{
+  "Filme": "Teste",
+  "Sala": 1,
+  "DataHora": "2025-11-26T16:00:00",
+  "SinopseFilme": "Teste",
+  "DiretoresFilme": "Teste",
+  "QuantidadeTotalAssentos": 120
+}
+###
